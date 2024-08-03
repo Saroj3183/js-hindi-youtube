@@ -2,7 +2,7 @@
 
 const coding = ["js","java","ruby","python","cpp"]
 
-// coding.forEach( function (val){ //callback fun add krvanu nam vagar nu
+// coding.forEach( function (val){           //callback fun add krvanu nam vagar nu
       //console.log(val);
     
 // })
@@ -40,6 +40,6 @@ const myCoding = [ //array na andar object ma value nu access krva foreach loop 
 ]
 
 myCoding.forEach( (item) => {
-    console.log(item); // we can access filename,languagename from array of object 
+    console.log(item.languageName); // we can access filename,languagename from array of object 
     
 })
