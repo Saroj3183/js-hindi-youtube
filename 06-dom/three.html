@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>chai aur code</title>
+</head>
+<body style="background-color: black; ">
+</body>
+<script>
+    const div = document.createElement('div')
+    console.log(div);
+    div.className = 'main'
+    div.id =Math.round(Math.random()*10+1)
+    div.setAttribute("title" , "genereted title")
+    div.style.backgroundColor = 'purple'
+    div.style.padding = '15px'
+    // const addText = div.innerText = 'saroj thakor'  //to add text in  page
+    const addText = document.createTextNode("saroj thakor") //to add text in page
+    div.appendChild(addText)
+
+    document.body.appendChild(div) 
+
+
+    // there are two methods to add text in doc
+
+/*  1. by div.innertext or innnerhtml
+    ex. const addText = div.innerText = 'saroj thakor' 
+       document.body.appendChild(div) 
+
+    2. by creating textnode
+    ex. const addText = document.createTextNode("saroj thakor")
+       div.appendChild(addText)
+        document.body.appendChild(div)
+ */
+  
+    
+</script>
+</html>
