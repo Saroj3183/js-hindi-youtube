@@ -58,7 +58,34 @@ form.addEventListener('submit',function(e){
     const bmi = ( weight/((height*height)/10000)).toFixed(2);
     //show result
     results.innerHTML = `<span>${bmi}</span>`;
+
+    if(bmi < 18.6){
+      results.innerHTML = `under weight ${bmi}`
+    }
+    if(bmi === 18.6 && bmi === 24.9 ){
+      results.innerHTML = `normal range ${bmi}`
+    }
+    if(bmi > 18.6){
+      results.innerHTML = `overweight ${bmi}`
+    }
    }
 })
+
+```
+
+## project3 solution code
+
+```javascript
+
+const clock = document.getElementById('clock')
+//const clock = document.querySelector('#clock')
+
+
+setInterval(function(){
+  let date = new Date()
+  // console.log(date)
+  clock.innerHTML = date.toLocaleTimeString();
+  
+}, 1000) //1000= 1sec.
 
 ```
