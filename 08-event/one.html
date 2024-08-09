@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM</title>
+</head>
+<body style="background-color: black; color: white;">
+    <h2>Amazing picture</h2>
+    <div>
+        <ul id="images">
+            <li><img width="200px" id="city" src="https://images.pexels.com/photos/2246476/pexels-photo-2246476.jpeg?auto=compress&cs=tinysrgb&w=600" alt=""></li>
+            <li><img width="200px" id="paint" src="https://images.pexels.com/photos/1266808/pexels-photo-1266808.jpeg?auto=compress&cs=tinysrgb&w=600" alt=""></li>
+            <li><img width="200px" id="flower" src="https://images.pexels.com/photos/1379636/pexels-photo-1379636.jpeg?auto=compress&cs=tinysrgb&w=600" alt=""  ></li>
+            <!-- onclick="alert('flower')" this approach is not scalable in js -->
+            <li><img width="200px" id="mountain" src="https://images.pexels.com/photos/691668/pexels-photo-691668.jpeg?auto=compress&cs=tinysrgb&w=600" alt=""></li>
+            <li><img width="200px" id="pool" src="https://images.pexels.com/photos/459203/pexels-photo-459203.jpeg?auto=compress&cs=tinysrgb&w=600" alt=""></li>
+            <li><a href="https://www.google.com/" id="google">google</a></li>
+        </ul>
+        
+    </div>
+    
+</body>
+<script>
+    // javascript event run sequentially 
+
+    // document.getElementById('flower').onclick = function(){ //2nd approach
+    //     alert('flower')
+    // }
+    //attachEvent() //4th approach
+    //jquery - on  //5th approach
+
+    //type, timestamp , defaultPrevented
+    //target , toElement , scrElement , currentTarget
+    //clientX , clientY , screenX , screenY
+    //altkey, ctrlkey , shiftkey , keycode
+
+    //propogation event 
+    //1.false => defualt value , capturing inside to outside and also called bubbling event. i.e img=>li=>ul
+    //2.true => capturing event and capturing outside to inside. ul=>li=>img
+
+
+    // document.getElementById('images').addEventListener('click', function(e){ //3rd approach
+    //     console.log("clicked inside ul");
+        
+    // }, false ) //false defualt parameter
+
+    // document.getElementById('flower').addEventListener('click', function(e){ //3rd approach
+    //     console.log("owl clicked");
+    //     e.stopPropagation() //stop bubbling
+    // }, false) //false defualt parameter 
+
+
+    // document.getElementById('google').addEventListener('click', function(e){
+    //     e.preventDefault() //google link will not open 
+    //     e.stopPropagation()
+    //     console.log("google clicked");
+        
+    // }, false)
+
+    document.querySelector('#images').addEventListener('click',function(e){
+        console.log(e.target.tagName);
+        
+        if (e.target.tagName === 'IMG' ){
+            console.log(e.target.id);
+            let removeIt = e.target.parentNode
+            removeIt.remove()  // will disappear iamges when we click on it method-1
+        }
+         
+        // removeIt.parentNode.removeChild(removeIt) //will disappear iamges when we click on it method-2
+        
+    })
+
+
+</script>
+</html>
