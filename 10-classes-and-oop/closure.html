@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>closure</title>
+</head>
+
+<body style="background-color: black;">
+
+    <button id="orange">orange</button>
+    <button id="pink">pink</button>
+
+</body>
+<script>
+    //Lexical analysis
+
+    /* function init() {
+        var name = "Mozilla";
+
+        function displayName() {
+
+            console.log(name);
+        }
+        displayName();
+    }
+    init(); */
+
+
+
+    function outer() {          //parent funct child function ne access na kri shake
+        let username = "saroj"
+        // console.log(secret) (mota nana pase na magi shake pn nana mota pase magi shake ne siblings b ek bija sathe share na kre)
+
+        function inner() {      //child func parent function na variable access kri shake
+            let secret = "my123"
+            // console.log("inner" , username)
+        }
+        function innerTwo() {
+            // console.log("innerTwo" , username)
+            //console.log(secret) siblings cant access each other variable 
+        }
+        inner()
+        innerTwo()
+
+    }
+    outer() // call krvu
+    // console.log(username) ==> function ni andar j b variable declare kri e outer space ma declare na kri shaki
+
+    //inner func pase outer func nu access hoi
+
+
+
+    //***********************************************Closure****************************************
+    //function return kri to puro scope ny pn lexical scope return kre
+
+    function user() {
+        const name = "chai"
+        function displayName() {
+            //      console.log(name)  chai
+        }
+        return displayName;  //lexical scope return kre
+    }
+    const myname = user()
+    myname()
+</script>
+<script>
+
+    /*    document.getElementById('orange').onclick = function(){
+            document.body.style.backgroundColor = `orange`
+        }
+    
+        document.getElementById('pink').onclick = function(){
+            document.body.style.backgroundColor = `pink`
+        } */
+
+//******closure real world example****************
+
+    function clickHandler(color) {
+        //  document.body.style.backgroundColor = `${color}`
+
+        return function () {
+
+            document.body.style.backgroundColor = `${color}`
+
+        }
+
+    }
+
+    document.getElementById('orange').onclick = clickHandler('orange')
+    document.getElementById('pink').onclick = clickHandler('pink')
+
+</script>
+
+</html>
